@@ -154,3 +154,8 @@ button:hover {
   background-color: #e6e6e7;
   transition: ease-in-out 200ms;
 }
+
+.footer {
+  margin-left: 110px;
+  color: black;
+}
