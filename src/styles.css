@@ -159,3 +159,15 @@ button:hover {
   margin-left: 110px;
   color: black;
 }
+
+.hot {
+  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+
+.cold {
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+.neutral {
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
