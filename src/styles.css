@@ -63,8 +63,8 @@ a:active {
 }
 
 .weather-icon {
-  max-width: 500px;
-  padding-left: 150px;
+  max-width: 300px;
+  float: left;
 }
 
 .top-row {
