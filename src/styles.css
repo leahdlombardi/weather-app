@@ -61,7 +61,7 @@ a {
   color: white;
 }
 
-.units .active {
+.active {
   color: white;
 }
 
@@ -115,15 +115,15 @@ input[type="submit"]:hover {
 }
 
 button {
-  margin-left: 20px;
+  margin-left: 10px;
   margin-right: 20px;
-  padding-top: 8px;
+  padding-top: 20px;
   margin-top: 20px;
-  padding-bottom: 50px;
-  margin-bottom: -20px;
+  padding-bottom: 30px;
+  margin-bottom: 0px;
   width: 96px;
-  font-size: 14px;
-  height: 40px;
+  font-size: 12px;
+  height: 20px;
   border: 2px solid black;
   font-weight: 800;
   text-align: center;
