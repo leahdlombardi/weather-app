@@ -1,22 +1,32 @@
-let now = new Date();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+function formatDate(date, timezone) {
+  let localOffsetInMs = date.getTimezoneOffset() * 60 * 1000;
+  let targetOffsetInMs = timezone * 1000;
+  let targetTimestamp = date.getTime() + localOffsetInMs + targetOffsetInMs;
+  let localDate = new Date(targetTimestamp);
+
+  let hours = localDate.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = localDate.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let dayIndex = localDate.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  let day = days[dayIndex];
+  return `${day}, ${hours}:${minutes}`;
 }
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-let day = days[now.getDay()];
-let h2 = document.querySelector("#current-time");
-h2.innerHTML = `${day} ${hours}:${minutes} `;
 
 
 function getCityTemperature(event) {
@@ -24,6 +34,7 @@ function getCityTemperature(event) {
   let city = document.querySelector("#new-location").value;
   searchCity(city);
 }
+
 
 function displayTemperature(response) {
   let descriptionElement = document.querySelector("#description")
@@ -34,6 +45,8 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+  let dateElement = document.querySelector("#current-time");
+  dateElement.innerHTML = formatDate(new Date(), response.data.timezone);
   displayedTemperature.innerHTML = currentTemperature;
   displayedCity.innerHTML = currentCity; 
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -50,6 +63,8 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(findLocation);
 }
+
+
 
 function findLocation(position) {
   let lat = position.coords.latitude;
