@@ -18,6 +18,7 @@ let day = days[now.getDay()];
 let h2 = document.querySelector("#current-time");
 h2.innerHTML = `${day} ${hours}:${minutes} `;
 
+
 function getCityTemperature(event) {
   event.preventDefault();
   let city = document.querySelector("#new-location").value;
@@ -25,13 +26,23 @@ function getCityTemperature(event) {
 }
 
 function displayTemperature(response) {
+  let descriptionElement = document.querySelector("#description")
   let currentTemperature = Math.round(response.data.main.temp);
   let currentCity = response.data.name;
   let displayedTemperature = document.querySelector("#current-temperature");
   let displayedCity = document.querySelector("#current-location");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
   displayedTemperature.innerHTML = currentTemperature;
-  displayedCity.innerHTML = currentCity;
+  displayedCity.innerHTML = currentCity; 
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+    
 }
+
+
+
 
 function getCurrentLocation(event) {
   event.preventDefault();
@@ -86,3 +97,8 @@ let celsiusLink = document.querySelector("#celsius-change");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 searchCity("Manchester");
+
+
+
+
+

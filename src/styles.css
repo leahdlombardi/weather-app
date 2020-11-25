@@ -25,7 +25,7 @@ body {
 h1 {
   font-weight: 800;
   font-size: 35px;
-  padding-top: 60px;
+  padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
 }
@@ -40,6 +40,11 @@ h3 {
   padding-top: 20px;
   padding-bottom: 30px;
   font-size: 30px;
+  text-align: center;
+}
+
+p {
+  text-transform: capitalize;
   text-align: center;
 }
 
