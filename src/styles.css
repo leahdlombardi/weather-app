@@ -62,12 +62,7 @@ a:active {
   color: black;
 }
 
-.fa-cloud-moon {
-  margin-left: 40px;
-  margin-top: 70px;
-  padding-bottom: 20px;
-  margin-right: 300px;
-  font-size: 200px;
+.weather-icon {
 }
 
 .top-row {
