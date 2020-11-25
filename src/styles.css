@@ -98,7 +98,7 @@ input[type="submit"] {
   margin-left: 20px;
   padding-top: 3px;
   margin-bottom: 40px;
-  width: 96px;
+  width: 120px;
   height: 40px;
   border: 2px solid black;
   font-weight: 800;
@@ -111,12 +111,12 @@ input[type="submit"]:hover {
 }
 
 button {
-  margin-left: 60px;
+  margin-left: 40px;
 
   padding-top: 20px;
   margin-top: 10px;
   padding-bottom: 50px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   width: 120px;
   font-size: 15px;
   height: 10px;
