@@ -56,7 +56,9 @@ function displayTemperature(response) {
       "src",
       `src/img/${response.data.weather[0].icon}.png`
     );
+  
   }
+  
 
 
 function getCurrentLocation(event) {
@@ -124,13 +126,6 @@ citySearchEngine.addEventListener("submit", getCityTemperature);
 let currentLocationButton = document.querySelector("#my-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("h3");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-}
 
 function convertToCelsius(event) {
   event.preventDefault();
@@ -138,8 +133,21 @@ function convertToCelsius(event) {
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
 
-  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
+temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
 }
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("h3");
+  let temperature = temperatureElement.innerHTML;
+  temperature = Number(temperature);
+  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+
+}
+
+
+
+
 
 let fahreinheitLink = document.querySelector("#fahrenheit-change");
 fahreinheitLink.addEventListener("click", convertToFahrenheit);
