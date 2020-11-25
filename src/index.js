@@ -100,22 +100,24 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 
 function convertToFahrenheit(event) {
-  event.preventDefault();
+  event.preventDefault(); 
+
   let temperatureElement = document.querySelector("#current-temperature");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32) + "°F";
 
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
+  
   let temperatureElement = document.querySelector("#current-temperature");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
   
 
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature) + "°C";
 }
 
 
