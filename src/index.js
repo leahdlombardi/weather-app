@@ -45,7 +45,24 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
   let dateElement = document.querySelector("#current-time");
+  let changeColour = document.querySelector("#colour-box");
+  if (celsiusTemperature >= 16) {
+    changeColour.classList.add("hot");
+    changeColour.classList.remove("neutral");
+    changeColour.classList.remove("cold");}
+      else if (celsiusTemperature >= 10 && celsiusTemperature <= 15) {
+    changeColour.classList.add("neutral");
+    changeColour.classList.remove("hot");
+    changeColour.classList.remove("cold");
+  }
+  else if (celsiusTemperature <= 9) {
+    changeColour.classList.remove("neutral");
+    changeColour.classList.remove("hot");
+    changeColour.classList.add("cold");
+  }
   
+
+
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   dateElement.innerHTML = formatDate(new Date(), response.data.timezone);
   displayedCity.innerHTML = response.data.name;
