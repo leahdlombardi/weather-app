@@ -56,8 +56,8 @@ function displayTemperature(response) {
       "src",
       `src/img/${response.data.weather[0].icon}.png`
     );
-    
-}
+  }
+
 
 function getCurrentLocation(event) {
   event.preventDefault();
@@ -76,12 +76,46 @@ function findLocation(position) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
+function displayForecast (response){
+  let forecastElement= document.querySelector("#forecast");
+  let forecast = response.data.list[0];
+
+for (let index = 0; index < 5; index++) {
+   forecast= response.data.list[index];
+  tempMax=forecast.main.temp_max;
+   tempMin=forecast.main.temp_min;
+
+  forecastElement.innerHTML += 
+    ` <div class="col">
+      <h3>
+       <div class="hourly-forecast">
+       ${formatHours(forecast.dt * 1000)}
+       </div>
+       </h3>
+      <div class="forecast-icons">
+      <img 
+      src= "src/img/${forecast.weather[0].icon}.png" />
+       </div>
+      <div class="highs-lows">
+     <strong> <span id="temp-max">${Math.round(forecast.main.temp_max)}</span>°
+     </strong> 
+     <span id="temp-min">${Math.round(forecast.main.temp_min)}</span>°
+     </div>
+      </div>`;
+  }
+  }
+
+
+
 function searchCity(city) {
   let apiKey = "c65377b33dbe28a83d43ee9cd1615d94";
   let units = "metric";
   let apiEndingPoint = "https://api.openweathermap.org/data/2.5/weather?";
   let apiUrl = `${apiEndingPoint}q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let citySearchEngine = document.querySelector("#city-search");
@@ -114,8 +148,5 @@ let celsiusLink = document.querySelector("#celsius-change");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 searchCity("Manchester");
-
-
-
 
 
