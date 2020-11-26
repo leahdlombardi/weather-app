@@ -49,16 +49,19 @@ function displayTemperature(response) {
   if (celsiusTemperature >= 16) {
     changeColour.classList.add("hot");
     changeColour.classList.remove("neutral");
-    changeColour.classList.remove("cold");}
+    changeColour.classList.remove("cold");
+    
+    }
       else if (celsiusTemperature >= 10 && celsiusTemperature <= 15) {
     changeColour.classList.add("neutral");
     changeColour.classList.remove("hot");
     changeColour.classList.remove("cold");
+    
   }
   else if (celsiusTemperature <= 9) {
+    changeColour.classList.add("cold");
     changeColour.classList.remove("neutral");
     changeColour.classList.remove("hot");
-    changeColour.classList.add("cold");
   }
   
 
@@ -146,5 +149,4 @@ let celsiusLink = document.querySelector("#celsius-change");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 searchCity("Manchester");
-
 
