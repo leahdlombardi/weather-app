@@ -62,7 +62,8 @@ a {
 }
 
 .weather-icon {
-  max-width: 300px;
+  max-width: 350px;
+  margin-left: 100px;
   float: left;
 }
 
