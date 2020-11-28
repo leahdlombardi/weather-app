@@ -114,6 +114,7 @@ function searchCity(event) {
 let citySearchEngine = document.querySelector("#city-search");
 citySearchEngine.addEventListener("submit", getCityTemperature);
 
+
 let currentLocationButton = document.querySelector("#my-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
@@ -147,6 +148,7 @@ fahreinheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-change");
 celsiusLink.addEventListener("click", convertToCelsius);
+
 
 searchCity("Manchester");
 
